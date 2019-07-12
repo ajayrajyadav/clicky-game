@@ -14,16 +14,16 @@ class Game extends Component {
         message: "Click on an image to earn a point, don't click on any more than once!"
     };
 
-    componentDidMount(){
-        this.setState({ data: this.shuffleArray(this.state.data)});
+    componentDidMount() {
+        this.setState({ data: this.shuffleArray(this.state.data) });
     }
 
     shuffleArray = (data) => {
-        return data.sort(function(a,b){return 0.5 - Math.random()});
+        return data.sort(function (a, b) { return 0.5 - Math.random() });
     }
 
     resetTheArray = newArray => {
-        let resetData = data.map(element => ({ ...element, clicked: false}));
+        let resetData = data.map(element => ({ ...element, clicked: false }));
         return (this.shuffleArray(resetData));
     }
 
@@ -49,21 +49,43 @@ class Game extends Component {
     gameCardClick = id => {
         let guessedRight = false;
         const newArray = this.state.data.map(element => {
-            if(!element.id === id && !element.clicked){
+            if (!element.id === id && !element.clicked) {
                 element.clicked = true;
                 guessedRight = true;
             }
             return element
         })
-        if(guessedRight){
+        if (guessedRight) {
             this.rightGuess(newArray)
-        }else{
+        } else {
             this.wrongGuess(newArray);
         }
     }
 
-    render(){
-        return();
+    render() {
+        return (
+            <div className="fadeIn animated">
+                <NavBar score={this.state.score} topScore={this.state.topScore}></NavBar>
+                <GameInstructions message={this.state.message}></GameInstructions>
+                <Container>
+                    {
+                        this.state.data.map(element => (
+                            <div className="rollIn animated">
+                                <GameCard
+                                    key={element.id}
+                                    id={element.id}
+                                    image={element.image}
+                                    animate={!this.state.score && this.state.topScore}
+                                    clicked={element.clicked}
+                                    hancleClick={this.gameCardClick}
+                                ></GameCard>
+                            </div>
+                        ))
+                    }
+                </Container>
+                <Footer />
+            </div>
+        );
     }
 }
 
