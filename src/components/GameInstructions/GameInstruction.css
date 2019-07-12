@@ -1,0 +1,10 @@
+.jumbotron {
+    box-shadow: 0 2px 5px 0 darkslateblue;
+    font-family: 'Marvel', sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.instructions {
+    text-align: center;
+}

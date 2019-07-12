@@ -2,7 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import GameMessage from '../GameMessage';
 
-function Navbar(props){
+const Navbar = (props) => {
     return(
         <div className='header'>
             <ul>
