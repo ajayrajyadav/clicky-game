@@ -18,7 +18,7 @@ class Game extends Component {
         this.setState({ data: this.shuffleArray(this.state.data)});
     }
 
-    function shuffleArray(data) {
+    shuffleArray = (data) => {
         let newArray = data.sort(function(a,b){return 0.5 - Math.random()});
         return newArray;
     }
