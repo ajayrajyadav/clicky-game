@@ -22,6 +22,47 @@ class Game extends Component {
         let newArray = data.sort(function(a,b){return 0.5 - Math.random()});
         return newArray;
     }
+
+    resetTheArray = newArray => {
+        let resetData = data.map(element => ({ ...element, clicked: false}));
+        return (this.shuffleArray(resetData));
+    }
+
+    rightGuess = newArray => {
+        let newScore = this.state.score;
+        newScore++;
+        let newTopScore = Math.max(newScore, this.state.topScore);
+        this.setState({
+            data: this.shuffleArray(newArray),
+            score: newScore,
+            topScore: newTopScore,
+            animation: "animation swing"
+        })
+    }
+
+    wrongGuess = newArray => {
+        this.setState({
+            data: this.resetTheArray(newArray),
+            score: 0
+        })
+    }
+
+    gameCardClick = id => {
+        let guessedRight = false;
+        const newArray = this.state.data.map(element => {
+            if(!element.id === id && !element.clicked){
+                element.clicked = true;
+                guessedRight = true;
+            }
+            return element
+        })
+        if(guessedRight){
+            this.rightGuess(newArray)
+        }else{
+            this.wrongGuess(newArray);
+        }
+    }
+
     render(){
         return();
     }
