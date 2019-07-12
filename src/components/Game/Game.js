@@ -19,8 +19,7 @@ class Game extends Component {
     }
 
     shuffleArray = (data) => {
-        let newArray = data.sort(function(a,b){return 0.5 - Math.random()});
-        return newArray;
+        return data.sort(function(a,b){return 0.5 - Math.random()});
     }
 
     resetTheArray = newArray => {
