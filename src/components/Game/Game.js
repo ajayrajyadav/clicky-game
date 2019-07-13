@@ -36,7 +36,7 @@ class Game extends Component {
             data: this.shuffleArray(newArray),
             score: newScore,
             topScore: newTopScore,
-            animation: "animation swing"
+            animation: "animation hinge"
         })
     }
 
@@ -71,7 +71,7 @@ class Game extends Component {
                 <Container>
                     {
                         this.state.data.map(element => (
-                            <div className="animated rollIn">
+                            <div className="animated rotateIn">
                                 <GameCard
                                     key={element.id}
                                     id={element.id}

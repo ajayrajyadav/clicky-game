@@ -31,7 +31,7 @@ class GameMessage extends Component {
 
     addAnimation = () => {
         if(this.state.message === 'correct'){
-            return 'animated pulse'
+            return 'animated rubberBand'
         }else if(this.state.message === 'incorrect'){
             return 'animated wobble'
         }else{
