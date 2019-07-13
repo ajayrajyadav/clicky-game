@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Container from "../Container/Container";
-import GameCard from "../GameCard/GameCard";
-import GameInstructions from "../GameInstructions/GameInstruction";
-import NavBar from "../NavBar/Navbar";
-import Footer from "../Footer/Footer"
+import Container from "../Container";
+import GameCard from "../GameCard";
+import GameInstructions from "../GameInstructions";
+import NavBar from "../NavBar";
+import Footer from "../Footer"
 import data from "../../data.json";
 
 class Game extends Component {
@@ -13,6 +13,7 @@ class Game extends Component {
         topScore: 0,
         message: "Click on an image to earn a point, don't click on any more than once!"
     };
+    
 
     componentDidMount() {
         this.setState({ data: this.shuffleArray(this.state.data) });
@@ -49,7 +50,7 @@ class Game extends Component {
     gameCardClick = id => {
         let guessedRight = false;
         const newArray = this.state.data.map(element => {
-            if (!element.id === id && !element.clicked) {
+            if (element.id === id && !element.clicked) {
                 element.clicked = true;
                 guessedRight = true;
             }
@@ -77,7 +78,7 @@ class Game extends Component {
                                     image={element.image}
                                     animate={!this.state.score && this.state.topScore}
                                     clicked={element.clicked}
-                                    hancleClick={this.gameCardClick}
+                                    handleClick={this.gameCardClick}
                                 ></GameCard>
                             </div>
                         ))

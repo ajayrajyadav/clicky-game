@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import './Navbar.css';
+import React from "react";
+import './NavBar.css';
 import GameMessage from '../GameMessage';
 
 const Navbar = (props) => {

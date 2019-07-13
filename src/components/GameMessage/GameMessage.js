@@ -22,37 +22,65 @@ class GameMessage extends Component {
             newState.message = "incorrect"
         }
 
-        if (score !== this.props.score || this.state.message !== newState.Message) {
+        if (score !== this.props.score || this.state.message !== newState.message) {
+            console.log(newState);
             this.setState(newState);
         }
     }
 
-    messageObj = () => {
+
+    addAnimation = () => {
         if(this.state.message === 'correct'){
-            return {
-                updatedMessage: 'You Guessed right',
-                updateAnimation: 'animated pulse'
-            }
+            return 'animated pulse'
         }else if(this.state.message === 'incorrect'){
-            return {
-                updatedMessage: 'W R O N G',
-                updateAnimation: 'animated wobble'
-            } 
+            return 'animated wobble'
         }else{
-            return {
-                updatedMessage: 'Click Character To Begin',
-                updateAnimation: ''
-            }
+            return '';
         }
     }
+
+    updatedMessage = () => {
+        if(this.state.message === 'correct'){
+            return 'You Guessed right'
+        }else if(this.state.message === 'incorrect'){
+            return 'W R O N G'
+        }else{
+            return 'Click An Image To Begin';
+        }
+    }
+
+    // messageObj = () => {
+    //     if(this.state.message === 'correct'){
+    //         return {
+    //             updatedMessage: 'You Guessed right',
+    //             updateAnimation: 'animated pulse'
+    //         }
+    //     }else if(this.state.message === 'incorrect'){
+    //         return {
+    //             updatedMessage: 'W R O N G',
+    //             updateAnimation: 'animated wobble'
+    //         } 
+    //     }else{
+    //         return {
+    //             updatedMessage: 'Click Character To Begin',
+    //             updateAnimation: ''
+    //         }
+    //     }
+    // }
+
 
     render(){
         return(
             <li
-                className={`gameMessage ${this.state.animating? this.messageObj.updateAnimation: ""} ${this.state.animating? this.state.message: "black"}`}
+                className={`
+                gameMessage 
+                ${this.state.animating? this.addAnimation: ""} 
+                ${this.state.animating? this.state.message: "black"}`}
                 id={`${this.state.message}`}
                 onAnimationEnd={() => this.setState()}
             >
+                {console.log("adfasdfasdfsadfsadf  "+this.addAnimation())}
+                {this.updatedMessage()}
             </li>
         );
     }

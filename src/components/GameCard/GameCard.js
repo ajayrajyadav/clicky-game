@@ -1,4 +1,4 @@
-import React from "./node_modules/react";
+import React from "react";
 import "./GameCard.css";
 
 const GameCard = props => (
@@ -6,8 +6,8 @@ const GameCard = props => (
         role="img" 
         aria-label="click item" 
         className={`gameCard ${props.animate? "animated wobble": ""}`}
-        style={{ backgroundImage: `url($props.image`}}
-        onClick={ () => props.handleClick(props.id)}
+        style={{ backgroundImage: `url("${props.image}")` }}
+        onClick={() => props.handleClick(props.id)}
     >
     </div>
 )
