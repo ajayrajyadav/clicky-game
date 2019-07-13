@@ -5,6 +5,10 @@
     font-weight: bold;
 }
 
+.jumbo {
+    margin-top: 80px; 
+}
+
 .instructions {
     text-align: center;
 }

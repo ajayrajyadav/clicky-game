@@ -74,12 +74,11 @@ class GameMessage extends Component {
             <li
                 className={`
                 gameMessage 
-                ${this.state.animating? this.addAnimation: ""} 
+                ${this.state.animating? this.addAnimation(): ""} 
                 ${this.state.animating? this.state.message: "black"}`}
                 id={`${this.state.message}`}
                 onAnimationEnd={() => this.setState()}
             >
-                {console.log("adfasdfasdfsadfsadf  "+this.addAnimation())}
                 {this.updatedMessage()}
             </li>
         );

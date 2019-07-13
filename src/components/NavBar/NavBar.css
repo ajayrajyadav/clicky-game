@@ -2,7 +2,7 @@
     background: #e23636;
     width: 100%;
     min-height: 70px;
-    color: #518cca;
+    color: #266EF6;
     position: fixed;
     top: 0;
     margin: 0 auto;
@@ -23,6 +23,7 @@
     width: 33%;
     padding-top: 20px;
     font-family: 'Marvel', sans-serif;
+    /* font-size: 2em */
 }
 .title{
     font-family: 'Shadows Into Light', cursive;

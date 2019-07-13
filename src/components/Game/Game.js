@@ -11,7 +11,7 @@ class Game extends Component {
         data,
         score: 0,
         topScore: 0,
-        message: "Click on an image to earn a point, don't click on any more than once!"
+        message: "Click on an image to earn a point, don't click on it more than once!"
     };
     
 
@@ -65,13 +65,13 @@ class Game extends Component {
 
     render() {
         return (
-            <div className="fadeIn animated">
+            <div className=" animated fadeIn">
                 <NavBar score={this.state.score} topScore={this.state.topScore}></NavBar>
                 <GameInstructions message={this.state.message}></GameInstructions>
                 <Container>
                     {
                         this.state.data.map(element => (
-                            <div className="rollIn animated">
+                            <div className="animated rollIn">
                                 <GameCard
                                     key={element.id}
                                     id={element.id}

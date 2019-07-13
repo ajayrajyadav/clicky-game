@@ -1,5 +1,5 @@
 .gameMessage {
-    font-size: 1.5em;
+    font-size: 2em;
     font-family: 'Marvel', sans-serif;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .correct {
-    color: LAWNGREEN;
+    color: #35B535;
 }
 
 .incorrect {
